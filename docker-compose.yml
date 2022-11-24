@@ -52,7 +52,7 @@ services:
       - my-db:/var/lib/mysql
 
   receiver:
-    image: des0/receiver:latest
+    image: des0/receiver:receiverService
     container_name: receiver
     ports:
       - "8081:8081"
@@ -65,7 +65,7 @@ services:
       - "kafka"
 
   storage:
-    image: des0/storage:latest
+    image: des0/storage:storageService
     container_name: storage
     ports:
       - "8091:8091"
@@ -79,7 +79,7 @@ services:
       - "db"
 
   processing:
-    image: des0/processing:latest
+    image: des0/processing:processingService
     container_name: processing
     ports:
       - "8101:8101"
@@ -94,7 +94,7 @@ services:
       - "storage"
 
   audit:
-    image: des0/audit:latest
+    image: des0/audit:auditService
     container_name: audit
     ports:
       - "8111:8111"
